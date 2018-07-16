@@ -1,6 +1,7 @@
 (function() {
 
 	var app = angular.module('todoApp', []);
+	var gitapp = angular.module('githubViewer', []);
 
 
 	function todoCtrl() {
@@ -31,25 +32,38 @@
 		}
 	}
 
-	var MainController = function($scope, $http) {
+	var MainController = function($scope, $http, $interval, /*github*/) {
 	  $scope.message = 'Github viewer';
+	  $scope.userName = 'sampla';
+	  $scope.repoSortOrder = '-stargazers_count';
+	  $scope.timerCount = 5;
 
 	  var onUserComplete = function(response) {
-	  	console.log('response: ', response);
 	    // $scope.user = response.data;
 	  }
 
+	  var decrementTimer = function() {
+	  	$scope.timerCount -=1;
+	  	if($scope.timerCount == 0) $scope.requestUser();
+	  }
+
 	  var onError = function(reason) {
-	  	console.log('called')
 	  	$scope.error = 'could not fetch the user';
 	  }
+
+	  // run the countdown timer on init
+	  var countdownInterval = $interval(decrementTimer, 1000, $scope.timerCount);
 
 	  var findUser = function(response) {
 	  	var userList = response.data.users;
 	  	var filteredUser = userList.filter((user) => user.name === $scope.userName);
 	  	if (filteredUser.length === 0) onError();
 	  	$scope.user = filteredUser[0];
-	  	console.log('$scope.user: ', $scope.user);
+
+	  	if(countdownInterval) {
+	  		$interval.cancel(countdownInterval);
+	  		$scope.timerCount = null;
+	  	}
 	  }
 
 	  $scope.requestUser = function() {

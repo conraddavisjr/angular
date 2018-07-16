@@ -5,6 +5,7 @@
 </head>
 <script type="text/javascript" src="lib/angular.min.js"></script>
 <script type="text/javascript" src="todo.js"></script>
+<script type="text/javascript" src="github.js"></script>
 <link rel="stylesheet" href="style.css">
 <body>
 	<div ng-controller='TodoCtrl as todoList'>
@@ -22,17 +23,14 @@
 
 		<button ng-click='todoList.clearCompleted()'>clear completed</button>
 	</div>
-	<div ng-controller='MainController'>
+	<div ng-controller='MainController as lookup'>
+		{{timerCount}}
 		<form name='searchUser' ng-submit='search(userName)'>
 			<input type="search" ng-model='userName'>
 			<input type='submit' ng-click='requestUser()'>Search
 		</form>
-		<h1>{{message}}</h1>
-		<div>
-			{{error}}
-			<h2>Name: {{user.name}}</h2> <br>
-			<!-- <img ng-src="{{user.avatar_url}}" alt="{{user.name}}"> -->
-		</div>
+		{{error}}
+		<div ng-include="'userDetails.html'" ng-show="user"></div>
 	</div>
 </body>
 </html>
