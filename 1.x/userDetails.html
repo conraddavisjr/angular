@@ -1,0 +1,17 @@
+<div>
+	<h1>{{message}}</h1>
+	Order:
+	<select ng-model="repoSortOrder">
+		<option value="+name">name</option>
+		<option value="-stargazers_count">stars count</option>
+		<option value="+language">language</option>
+	</select>
+
+	<div>
+		<h2>Name: {{user.name}}</h2> <br>
+		<!-- <img ng-src="{{user.avatar_url}}" alt="{{user.name}}"> -->
+		<div ng-repeat="repo in user.repos | orderBy:repoSortOrder">
+			<div>{{repo.name}} | {{repo.stargazers_count}} | {{repo.language}}</div>
+		</div>
+	</div>
+</div>
