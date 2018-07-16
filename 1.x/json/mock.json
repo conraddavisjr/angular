@@ -1,0 +1,38 @@
+{
+	"users": [
+		{
+			"name": "sampla",
+			"repos": [
+				{
+					"name": "sampla",
+					"stargazers_count": 43,
+					"language": "javascript"
+				},
+				{
+					"name": "Posera",
+					"stargazers_count": 3,
+					"language": "java"
+				},
+				{
+					"name": "maedai",
+					"stargazers_count": 300,
+					"language": "Python"
+				},
+				{
+					"name": "Deajei",
+					"stargazers_count": 24000,
+					"language": "javascript"
+				}
+			]
+		},
+		{
+			"name": "Posera"
+		},
+		{
+			"name": "maedai"
+		},
+		{
+			"name": "Deajei"
+		}
+	]
+}

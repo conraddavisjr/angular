@@ -22,6 +22,18 @@
 
 		<button ng-click='todoList.clearCompleted()'>clear completed</button>
 	</div>
+	<div ng-controller='MainController'>
+		<form name='searchUser' ng-submit='search(userName)'>
+			<input type="search" ng-model='userName'>
+			<input type='submit' ng-click='requestUser()'>Search
+		</form>
+		<h1>{{message}}</h1>
+		<div>
+			{{error}}
+			<h2>Name: {{user.name}}</h2> <br>
+			<!-- <img ng-src="{{user.avatar_url}}" alt="{{user.name}}"> -->
+		</div>
+	</div>
 </body>
 </html>
 
