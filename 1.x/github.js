@@ -1,28 +1,32 @@
-// (function(){
+(function(){
 
-// 	var github = function($http) {
+	var github = function($http) {
 
-// 		this.getUser = function(username) {
-// 			return $http.get(`/json/mock.json`)
-// 									.then(function(response) {
-// 										return response.data;
-// 									});
-// 		};
+		var getUser = function(username) {
+			return $http.get(`https://api.github.com/users/${username}`)
+									.then(function(response) {
+										return response.data;
+									});
+		};
 
-// 		this.getRepos = function(response) {
-// 			var userList = response.data.users;
-// 	  	var filteredUser = userList.filter((user) => user.name === $scope.userName);
-// 	  	return filteredUser.length === 0 ? false : filteredUser  //onError();
-// 		}
+		var getRepos = function(user) {
+			console.log('user: ', user);
+			console.log('user.repos_url: ', user.repos_url);
+			return $http.get(user.repos_url)
+								  .then(function(response) {
+								   	console.log('response.data: ', response.data)
+								  	return response.data;
+								  });
+		}
 
-// 		return {
-// 			getUser,
-// 			getRepo
-// 		};
+		return {
+			getUser,
+			getRepos
+		};
 
-// 	};
+	};
 
-// 	var module = angular.module("githubViewer");
-// 	module.factory("github", github);
+	var module = angular.module("githubViewer");
+	module.factory("github", github);
 
-// }());
+}());

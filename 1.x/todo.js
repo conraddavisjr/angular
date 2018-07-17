@@ -1,7 +1,6 @@
 (function() {
 
-	var app = angular.module('todoApp', []);
-	var gitapp = angular.module('githubViewer', []);
+	var app = angular.module('githubViewer', []);
 
 
 	function todoCtrl() {
@@ -32,14 +31,20 @@
 		}
 	}
 
-	var MainController = function($scope, $http, $interval, /*github*/) {
+	var MainController = function($scope, github, $interval, /*github*/) {
+		console.log('github: ', github);
 	  $scope.message = 'Github viewer';
-	  $scope.userName = 'sampla';
+	  $scope.userName = 'angular';
 	  $scope.repoSortOrder = '-stargazers_count';
 	  $scope.timerCount = 5;
 
-	  var onUserComplete = function(response) {
-	    // $scope.user = response.data;
+	  var onUserComplete = function(data) {
+	  	// $scope.user = data;
+	    github.getRepos(data).then(onRepos, onError);
+	  }
+
+	  var onRepos = function(response) {
+	  	$scope.repos = response;
 	  }
 
 	  var decrementTimer = function() {
@@ -67,11 +72,13 @@
 	  }
 
 	  $scope.requestUser = function() {
-			// $http.get(`https://api.github.com/users/${$scope.userName}`)
-			// .then(onUserComplete, onError);
+			github.getUser($scope.userName)
+						.then(onUserComplete, onError);
+	  }
 
+	  $scope.requestOfflineUser = function() {
 			// offline version
-			$http.get(`/json/mock.json`)
+			github.get(`/json/mock.json`)
 	      .then(findUser, onError);
 	  }
 	}

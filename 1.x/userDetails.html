@@ -9,8 +9,8 @@
 
 	<div>
 		<h2>Name: {{user.name}}</h2> <br>
-		<!-- <img ng-src="{{user.avatar_url}}" alt="{{user.name}}"> -->
-		<div ng-repeat="repo in user.repos | orderBy:repoSortOrder">
+		<img ng-src="{{user.avatar_url}}" alt="{{user.name}}">
+		<div ng-repeat="repo in repos | orderBy:repoSortOrder">
 			<div>{{repo.name}} | {{repo.stargazers_count}} | {{repo.language}}</div>
 		</div>
 	</div>

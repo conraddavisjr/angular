@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html ng-app='todoApp'>
+<html ng-app='githubViewer'>
 <head>
 	<title></title>
 </head>
@@ -23,7 +23,7 @@
 
 		<button ng-click='todoList.clearCompleted()'>clear completed</button>
 	</div>
-	<div ng-controller='MainController as lookup'>
+	<div ng-controller='MainController'>
 		{{timerCount}}
 		<form name='searchUser' ng-submit='search(userName)'>
 			<input type="search" ng-model='userName'>
