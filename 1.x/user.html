@@ -1,0 +1,20 @@
+<div>
+	<h1>{{message}}</h1>
+	<a href="#/main">back to search</a><br>
+	Order:
+	<select ng-model="repoSortOrder">
+		<option value="+name">name</option>
+		<option value="-stargazers_count">stars count</option>
+		<option value="+language">language</option>
+	</select>
+
+	<div>
+		<h2>Name: {{user.name}}</h2> <br>
+		<img ng-src="{{user.avatar_url}}" alt="{{user.name}}">
+		<div ng-repeat="repo in repos | orderBy:repoSortOrder">
+			<div>
+				<a href="#/user/{{username}}/{{repo.name}}">{{repo.name}}</a> | {{repo.stargazers_count}} | {{repo.language}}
+			</div>
+		</div>
+	</div>
+</div>

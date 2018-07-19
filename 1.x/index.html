@@ -1,70 +1,18 @@
 <!DOCTYPE html>
 <html ng-app='githubViewer'>
 <head>
-	<title></title>
+	<script type="text/javascript" src="lib/angular.min.js"></script>
+	<script type="text/javascript" src="lib/angular-route.min.js"></script>
+	<script type="text/javascript" src="app.js"></script>
+	<script type="text/javascript" src="MainController.js"></script>
+	<script type="text/javascript" src="UserController.js"></script>
+	<script type="text/javascript" src="RepoController.js"></script>
+	<script type="text/javascript" src="github.js"></script>
 </head>
-<script type="text/javascript" src="lib/angular.min.js"></script>
-<script type="text/javascript" src="todo.js"></script>
-<script type="text/javascript" src="github.js"></script>
-<link rel="stylesheet" href="style.css">
-<body>
-	<div ng-controller='TodoCtrl as todoList'>
-		<h2>Total todos {{todoList.getTotalTodos()}}</h2>
-		<ul>
-			<li ng-repeat='todo in todoList.todos'>
-				<input type="checkbox" ng-model='todo.done'>
-				<span class="done-{{todo.done}}">{{todo.text}}</span>
-			</li>
-		</ul>
-		<form>
-			<input type="text" ng-model='todoList.formTodoText'>
-			<button ng-click='todoList.addTodo()'><i>+</i>Add</button>
-		</form>
 
-		<button ng-click='todoList.clearCompleted()'>clear completed</button>
-	</div>
-	<div ng-controller='MainController'>
-		{{timerCount}}
-		<form name='searchUser' ng-submit='search(userName)'>
-			<input type="search" ng-model='userName'>
-			<input type='submit' ng-click='requestUser()'>Search
-		</form>
-		{{error}}
-		<div ng-include="'userDetails.html'" ng-show="user"></div>
-	</div>
-</body>
+	<body>
+		<h1>Github Viewer</h1>
+		<div ng-view></div>
+	</body>
+
 </html>
-
-
-
-<!--
-<!DOCTYPE html>
-<html ng-app>
-<head>
-	<title></title>
-</head>
-<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
-<script type="text/javascript" src="todo.js"></script>
-<link rel="stylesheet" href="style.css">
-<body>
-	<div ng-controller='TodoCtrl'>
-		<h2>Total todos {{getTotalTodos()}}</h2>
-		<input type="number" ng-model='val1'>
-		+
-		<input type="number" ng-model='val2'>
-		this is the total {{add()}}
-		<ul>
-			<li ng-repeat='todo in todos'>
-				<input type="checkbox" ng-model='todo.done'>
-				<span class="done-{{todo.done}}">{{todo.text}}</span>
-			</li>
-		</ul>
-		<form>
-			<input type="text" ng-model='formTodoText'>
-			<button ng-click='addTodo()'><i>+</i>Add</button>
-		</form>
-
-		<button ng-click='clearCompleted()'>clear completed</button>
-	</div>
-</body>
-</html> -->

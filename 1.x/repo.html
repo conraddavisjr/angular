@@ -1,0 +1,18 @@
+<div>
+	<h1>{{username}}</h1>
+	<a href="#/main">back to search</a><br>
+	<a href="#/user/{{username}}">back to repo overview</a><br>
+	Open issues: {{repoDetails.open_issues_count}}
+	<br>
+	Total contributors: {{contributors.length}}
+	<br><br>
+	<div>
+		<div ng-repeat="contributor in contributors">
+			<div>
+				<img width="100" ng-src="{{contributor.avatar_url}}" alt="{{contributor.login}}">
+				<h3>{{contributor.login}}</h3>
+				<br>
+			</div>
+		</div>
+	</div>
+</div>
