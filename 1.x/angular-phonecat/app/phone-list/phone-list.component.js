@@ -1,10 +1,10 @@
 angular
-  .module('phonecatApp')
-  .component('phoneListComponent', {
-    template: 'phone-list.view.html',
-    controller: function ($scope) {
-  	$scope.name = 'Conrad';
-  	$scope.phones = [
+.module('phoneListComponent')
+.component('phoneListComponent', {
+  templateUrl: 'phone-list/phone-list.template.html',
+  controller: function phoneListComponent() {
+  	this.name = 'Conrad';
+  	this.phones = [
       {
         name: 'Nexus S',
         snippet: 'Fast just got faster with Nexus S.'
