@@ -1,14 +1,15 @@
 <!doctype html>
-<html lang="en" ng-app>
+<html lang="en" ng-app="phonecatApp">
   <head>
     <meta charset="utf-8">
     <title>My HTML File</title>
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
     <script src="bower_components/angular/angular.js"></script>
+    <script src="app.module.js"></script>
+    <script src="phone-list/phone-list.module.js"></script>
+    <script src="phone-list/phone-list.component.js"></script>
   </head>
   <body>
-
-    <p>Nothing here {{'yet' + '!'}} 1 + 2 = {{1 + 2}}</p>
-
+		<phoneListComponent></phoneListComponent>
   </body>
 </html>
