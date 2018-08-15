@@ -1,16 +1,14 @@
-// describe('phonesController', function () {
+describe('phoneListComponent', function () {
 
-// 	beforeEach(module('phoneCat'))
+	beforeEach(module('phoneListComponent'))
 
-// 	var $controller;
-// 	beforeEach(inject(function (_$controller_) {
-// 		$controller = _$controller_;
-// 	}))
+	var componentController;
+	beforeEach(inject(function ($componentController) {
+		componentController = $componentController;
+	}))
 
-// 	it('should have the name Conrad with a capitol C', function() {
-// 		var scope = {};
-// 		$controller('phonesController', {$scope: scope})
-// 		console.log('scope: ', scope);
-// 		expect(scope.name).toBe('Conrad')
-// 	})
-// })
+	it('should have the name Conrad with a capitol C', function() {
+		var ctrl = componentController('phoneListComponent')
+		expect(ctrl.name).toBe('Conrad')
+	})
+})

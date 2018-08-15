@@ -2,7 +2,7 @@ angular
 .module('phoneListComponent')
 .component('phoneListComponent', {
   templateUrl: 'phone-list/phone-list.template.html',
-  controller: function phoneListComponent() {
+  controller: function() {
   	this.name = 'Conrad';
   	this.phones = [
       {
