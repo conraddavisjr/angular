@@ -8,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 export class ServersComponent implements OnInit {
   allowNewServer = false;
   serverCreationStatus = 'no server was created';
-  serverName: = 'testing';
+  serverName = 'testing';
   userName: string;
+  displayParagraph = true;
+  buttonClicks = [];
 
   constructor() {
     setTimeout(() => {
@@ -31,8 +33,13 @@ export class ServersComponent implements OnInit {
   }
 
   onUpdateServerName(event: any) {
-    console.log(event)
     this.serverName = event.target.value;
+  }
+
+  toggleDisplay() {
+    this.displayParagraph = !this.displayParagraph;
+    this.buttonClicks.push(this.buttonClicks.length + 1);
+    // if(this.buttonClicks > 5)
   }
 
 }
