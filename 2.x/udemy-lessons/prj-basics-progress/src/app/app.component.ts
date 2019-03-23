@@ -1,6 +1,6 @@
 import {
   Component,
-  Input 
+  Input
 } from '@angular/core';
 
 @Component({
@@ -10,11 +10,4 @@ import {
 })
 export class AppComponent {
   @Input() itemClicked;
-
-  visiblePage = 'recipes';
-
-  handleNavigation(val) {
-    console.log('handleNavigation - e: ', val);
-    this.visiblePage = val;
-  }
 }
