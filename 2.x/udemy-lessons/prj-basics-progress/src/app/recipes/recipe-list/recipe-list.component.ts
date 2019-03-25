@@ -15,6 +15,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 export class RecipeListComponent implements OnInit {
 
   recipes: Recipe[];
+  selectedItemId: number;
 
   constructor(
     private recipeService: RecipeService,
@@ -27,6 +28,7 @@ export class RecipeListComponent implements OnInit {
   }
 
   onSelect(e, i) {
+    this.selectedItemId = i;
     this.recipeService.selectedRecipe(this.recipes[i]);
     this.router.navigate(
       [i],

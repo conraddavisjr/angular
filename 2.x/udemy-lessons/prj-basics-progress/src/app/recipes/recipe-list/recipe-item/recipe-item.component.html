@@ -1,5 +1,6 @@
 <a
   class="list-group-item clearfix"
+  [ngClass]="{'active': activeClass}"
   style="cursor: pointer">
   <div class="pull-left">
     <h4 class="list-group-item-heading">{{ recipe.name }}</h4>
